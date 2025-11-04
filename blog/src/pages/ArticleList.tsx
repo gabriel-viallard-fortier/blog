@@ -1,4 +1,4 @@
-import ArticleThumbnail from './ArticleThumbnail';
+import ArticleThumbnail from '../components/ArticleThumbnail';
 import '../assets/css/articleList.css';
 
 
@@ -6,7 +6,7 @@ export default function ArticleList() {
     return (
         <div className="place-items-center">
 
-            <h2 className="p-15 font-bold text-3xl">Articles super cools</h2>
+          <h3 className='m-10 text-2xl'>Decouvrez des articles et tutos détaillés au fur et à mesure de ma progression</h3>
             <div className="container">
                 <ArticleThumbnail />
                 <ArticleThumbnail />
