@@ -1,0 +1,64 @@
+{
+  "articles": [
+    {
+      "id": "1",
+      "title": "Crapulo-Nimbus",
+      "author": "Gabriel",
+      "content": "Petite vie bien remplie",
+      "description": "Ceci n'est pas une serpillière",
+      "image": "/nimbus.jpeg",
+      "categoryName": "Animaux",
+      "likeCount": 0
+    },
+    {
+      "id": "2",
+      "title": "Crapulo-Nimbus",
+      "author": "Gabriel",
+      "content": "Petite vie bien remplie",
+      "description": "Ceci est un paillasson",
+      "image": "/nimbus.jpeg",
+      "categoryName": "Animaux",
+      "likeCount": 0
+    },
+    {
+      "id": "3",
+      "title": "Titre",
+      "author": "Gabriel",
+      "content": "Ceci est un contenu",
+      "description": "Description magnifique",
+      "image": "/logo.jpg",
+      "categoryName": "Catégorie",
+      "likeCount": 0
+    },
+    {
+      "id": "4",
+      "title": "Soundcloud",
+      "author": "Gabriel",
+      "content": "Contenu",
+      "description": "Description",
+      "image": "/sc-logo.png",
+      "categoryName": "Musique",
+      "likeCount": 0
+    },
+    {
+      "id": "5",
+      "title": "Youtube",
+      "author": "Sale Propre",
+      "content": "Contenu très original",
+      "description": "Description originale",
+      "image": "/yt-logo.png",
+      "categoryName": "Vidéos",
+      "likeCount": 0
+    },
+    {
+      "id": "976f",
+      "title": "Title",
+      "author": "Author",
+      "content": "Content",
+      "description": "Description",
+      "image": "/logo.jpg",
+      "categoryName": "Category",
+      "likeCount": 0
+    }
+  ]
+}
