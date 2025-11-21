@@ -1,6 +1,7 @@
 import ArticleThumbnail from '../components/ArticleThumbnail';
 import '../assets/css/articleList.css';
 import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
 
 
 export type ArticleType = {
@@ -34,12 +35,13 @@ export type ArticleType = {
 
 );
     return (
-        <div className="">
+        <div className="flex flex-col">
             <div className="p-10 flex justify-center">
-                <input className="bg-yellow-200/50 border p-2" placeholder="Votre recherche ici" onChange={(event) => setSearchTerm(event.target.value)} />
+                <input className="bg-yellow-200/50 border rounded-xl w-100 p-2" placeholder="Votre recherche ici" onChange={(event) => setSearchTerm(event.target.value)} />
             </div>
 
-            <section className='m-auto container lg:gap-2 lg:p-10 sm:gap-1 sm:p-5'>
+
+            <ul className='m-auto container lg:gap-2 lg:p-10 sm:gap-1 sm:p-5'>
                 {filteredArticles.map((article) => (
                     <li key={article.id} >
                         <ArticleThumbnail
@@ -57,7 +59,7 @@ export type ArticleType = {
 
                 ))}
                 
-            </section>
+            </ul>
         </div>
     );
 }

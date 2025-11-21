@@ -59,7 +59,7 @@ function ArticleEdit() {
 
             {/* Formulaire d'édition de post */}
             <form onSubmit={handleSubmit}>
-                <fieldset className='m-20 p-10 border grid grid-cols-5 gap-4'>
+                <fieldset className='m-20 p-10 border rounded-2xl grid grid-cols-5 gap-4 bg-yellow-200/70'>
 
                     <legend className="p-4 text-2xl">Édition de l'article</legend>
 
@@ -76,7 +76,7 @@ function ArticleEdit() {
                         name="postTitleInput"
                         placeholder="Titre du post"
                         value={oldArticle.title}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl "
                         onChange={(e) => setOldArticle({ ...oldArticle, title: e.target.value })}
                     />
 
@@ -93,7 +93,7 @@ function ArticleEdit() {
                         name="postAuthorInput"
                         placeholder="Auteur du post"
                         value={oldArticle.author}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setOldArticle({ ...oldArticle, author: e.target.value })}
                     />
 
@@ -104,7 +104,7 @@ function ArticleEdit() {
                         Saisissez le contenu de l'article
                     </label>
                     <textarea
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         id="postContentInput"
                         name="postContentInput"
                         value={oldArticle.content}
@@ -126,7 +126,7 @@ function ArticleEdit() {
                         placeholder="Catégorie du post"
                         value={oldArticle.categoryName}
                         onChange={(e) => setOldArticle({ ...oldArticle, categoryName: e.target.value })}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                     />
 
 
@@ -140,7 +140,7 @@ function ArticleEdit() {
                         type="text"
                         placeholder="Description de l'article"
                         value={oldArticle.description}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setOldArticle({ ...oldArticle, description: e.target.value })}
                     />
 
@@ -151,14 +151,14 @@ function ArticleEdit() {
                         Choisissez une image
                     </label>
                     <input
-                        className='col-span-3 col-start-3 p-2 border'
+                        className='bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl'
                         type="file"
                         id="postImgInput"
                         name="postImgInput"
                         onChange={(e) => setOldArticle({ ...oldArticle, image: e.target.value })} />
 
                     <button
-                        className='col-start-3 col-span-3 p-2 m-auto w-50 border'
+                        className='bg-sky-300 hover:bg-sky-500 col-start-3 col-span-3 p-2 m-auto w-50 border'
                         type="submit">
                         Envoyer
                     </button>

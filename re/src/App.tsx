@@ -3,13 +3,14 @@ import Header from './components/Header';
 import { Route, Routes } from 'react-router';
 import Footer from './components/Footer';
 import ArticlePage from './pages/ArticlePage';
-import RegisterForm from './pages/RegisterForm';
+import RegisterForm from './components/RegisterForm';
 import ArticleCreate from './components/ArticleCreate';
 import ArticleList from './pages/ArticleList';
-import LoginForm from './pages/LoginForm';
+import LoginForm from './components/LoginForm';
 import Home from './pages/Home';
 import ArticleEdit from './components/ArticleEdit';
 import { Toaster } from 'sonner';
+import NotFound from './components/NotFound';
 
 function App() {
 
@@ -26,6 +27,7 @@ function App() {
           <Route path="/articles/:id/edit" element={ < ArticleEdit /> } />
           <Route path="/login" element={ < LoginForm/> } />
           <Route path="/register" element={ < RegisterForm/> } />
+          <Route path="*" element={ < NotFound />} />
         </Routes>
         <Footer />
         </>

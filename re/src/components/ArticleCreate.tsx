@@ -71,7 +71,7 @@ export default function ArticleCreate() {
                         name="postTitleInput"
                         placeholder="Titre du post"
                         value={newArticle.title}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setNewArticle({ ...newArticle, title: e.target.value })}
                     />
 
@@ -88,7 +88,7 @@ export default function ArticleCreate() {
                         name="postAuthorInput"
                         placeholder="Auteur du post"
                         value={newArticle.author}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setNewArticle({ ...newArticle, author: e.target.value })}
                     />
 
@@ -99,7 +99,7 @@ export default function ArticleCreate() {
                         Saisissez le contenu de l'article
                     </label>
                     <textarea
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         id="postContentInput"
                         name="postContentInput"
                         value={newArticle.content}
@@ -121,7 +121,7 @@ export default function ArticleCreate() {
                         placeholder="Catégorie du post"
                         value={newArticle.categoryName}
                         onChange={(e) => setNewArticle({ ...newArticle, categoryName: e.target.value })}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                     />
 
 
@@ -135,7 +135,7 @@ export default function ArticleCreate() {
                         type="text"
                         placeholder="Description de l'article"
                         value={newArticle.description}
-                        className="col-span-3 col-start-3 p-2 border"
+                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setNewArticle({ ...newArticle, description: e.target.value })}
                     />
 
@@ -146,14 +146,14 @@ export default function ArticleCreate() {
                         Choisissez une image
                     </label>
                     <input
-                        className='col-span-3 col-start-3 p-2 border'
+                        className='bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl'
                         type="file"
                         id="postImgInput"
                         name="postImgInput"
                         onChange={(e) => setNewArticle({ ...newArticle, image: e.target.value })} />
 
                     <button
-                        className='bg-sky-200/40 col-start-3 col-span-3 p-2 m-auto w-50 border'
+                        className='bg-sky-200/70 active:bg-sky-700/70 hover:bg-sky-500 col-start-3 col-span-3 p-2 m-auto w-50 border'
                         type="submit">
                         Envoyer
                     </button>

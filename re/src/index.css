@@ -1,7 +1,9 @@
 @import "tailwindcss";
 @layer base {
   body {
-    @apply bg-sky-200/90;
-
+    @apply bg-sky-400/40;
   } 
+  .active {
+    @apply bg-yellow-200/70 active:bg-yellow-700/70 border rounded-xl p-2;
+  }
 }

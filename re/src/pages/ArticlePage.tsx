@@ -75,8 +75,8 @@ function ArticlePage() {
                 <p>{article.description}</p>
             </div>
             <div className="text-center">
-                <button type="button" className="m-15 border p-3 bg-red-400/40" onClick={ArticleDelete}>Supprimer l'article</button>
-                <button type="button" className="m-15 border p-3 bg-sky-400/40" onClick={() => navigate(`/articles/${id}/edit`)}>Éditer l'article</button>
+                <button type="button" className="bg-sky-200/70 active:bg-sky-700/70 hover:bg-sky-500 m-15 border p-3" onClick={ArticleDelete}>Supprimer l'article</button>
+                <button type="button" className="bg-sky-200/70 active:bg-sky-700/70 hover:bg-sky-500 m-15 border p-3" onClick={() => navigate(`/articles/${id}/edit`)}>Éditer l'article</button>
 
             </div>
         </div>
