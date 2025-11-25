@@ -20,7 +20,7 @@ function ArticlePage() {
 
     const { id } = useParams<{ id: string }>();
     const [isLoading, setIsLoading] = useState(false);
-    const [error, setError] = useState(null);;
+    const [error, setError] = useState(null);
 
     function ArticleDelete() {
         

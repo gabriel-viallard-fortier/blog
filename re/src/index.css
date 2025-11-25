@@ -7,3 +7,26 @@
     @apply bg-yellow-200/70 active:bg-yellow-700/70 border rounded-xl p-2;
   }
 }
+
+.bg-svg-jupiter {
+    background-image: url("/jupiter.svg");
+    background-size: 14%;
+    background-position: 
+    199px ;
+
+}
+.gradient {
+    background-image: url('/temple.svg');
+    background-size: 10%;
+}
+.bg-svg-temple {
+    background-image: url('/temple.svg');
+}
+.bg-svg-repeat {
+    background-image: url("/propre.jpg");
+}
+.bg-picture {
+    background-image: url('/apropos.png');
+    background-repeat: no-repeat;
+    background-position: center;
+}

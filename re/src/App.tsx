@@ -21,7 +21,7 @@ function App() {
         {/* <ToastContainer aria-label={undefined} /> */}
         <Routes>
           <Route path="/" element={ < Home/>} />
-          <Route path="/articles" element={ < ArticleList/> } />
+          <Route path="/articles" element={ < ArticleList /> } />
           <Route path="/articles/:id" element={ <ArticlePage /> } />
           <Route path="/articles/new" element={ < ArticleCreate /> } />
           <Route path="/articles/:id/edit" element={ < ArticleEdit /> } />

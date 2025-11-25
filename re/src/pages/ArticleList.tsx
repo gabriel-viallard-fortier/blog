@@ -1,7 +1,7 @@
 import ArticleThumbnail from '../components/ArticleThumbnail';
 import '../assets/css/articleList.css';
 import { useEffect, useState } from 'react';
-import ReactPaginate from 'react-paginate';
+import { toast } from 'sonner';
 
 
 export type ArticleType = {
@@ -18,27 +18,23 @@ export type ArticleType = {
 function ArticleList() {
     const [articles, setArticles] = useState<ArticleType[]>([]);
     const [searchTerm, setSearchTerm] = useState<string>("");
-    const [pageCount, setPageCount] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
 
     useEffect(() => {
         const fetchArticles = async () => {
-            const response = await fetch(`http://localhost:3000/articles?_page=${currentPage + 1}&_per_page=4`);
-            const data = await response.json();
-            const totalCount = response.headers.get("items");
-            console.log(totalCount)
-            setArticles(data.data);
-            if (totalCount) {
-                setPageCount(Math.ceil(parseInt(totalCount) / 4));
+            try {
+
+                const response = await fetch(`http://localhost:3000/articles?_page=${currentPage + 1}&_per_page=4`);
+                const data = await response.json();
+                setArticles(data.data);
+            }
+            catch (error) {
+                toast.error('Erreur est survennue');    
             }
         };
 
         fetchArticles();
     }, [currentPage]);
-
-    const handlePageClick = (event: { selected: number }) => {
-        setCurrentPage(event.selected);
-    };
 
     const filteredArticles: ArticleType[] = articles.filter((article) =>
         article.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -53,26 +49,8 @@ function ArticleList() {
                 <input className="bg-yellow-200/50 border rounded-xl w-100 p-2" placeholder="Votre recherche ici" onChange={(event) => setSearchTerm(event.target.value)} />
             </div>
 
-            <ReactPaginate
-                className="flex justify-center gap-4"
-                pageCount={pageCount}
-                onPageChange={handlePageClick}
-                previousLabel={"< previous"}
-                nextLabel={"next >"}
-                pageClassName="page-item"
-                pageLinkClassName="page-link"
-                previousClassName="page-item"
-                previousLinkClassName="page-link"
-                nextClassName="page-item"
-                nextLinkClassName="page-link"
-                breakLabel="..."
-                breakClassName="page-item"
-                breakLinkClassName="page-link"
-                containerClassName="pagination"
-                activeClassName="active"
-            />
 
-            <ul className='m-auto container lg:gap-2 lg:p-10 sm:gap-1 sm:p-5'>
+            <ul className='m-auto container lg:gap-2 lg:p-10 sm:gap-1 sm:p-5 '>
                 {filteredArticles.map((article) => (
                     <li key={article.id} >
                         <ArticleThumbnail
@@ -88,6 +66,18 @@ function ArticleList() {
                     </li>
                 ))}
             </ul>
+            <div className="flex justify-center gap-10">
+                <button 
+                    onClick={() => setCurrentPage(currentPage -1)} 
+                    disabled={currentPage === 0}>Précedent</button>
+                    <span>{currentPage}</span>
+                <button 
+                    onClick={() => setCurrentPage(currentPage + 1)}
+                    disabled={articles.length < 4}>Suivant</button>
+            </div>  
+
+
+
         </div>
     );
 }
