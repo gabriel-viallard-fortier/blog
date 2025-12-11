@@ -16,20 +16,20 @@ function App() {
 
   return (
         <>
-        <Toaster position="bottom-right" aria-label={undefined} theme="dark"/>
-        <Header />
-        {/* <ToastContainer aria-label={undefined} /> */}
-        <Routes>
-          <Route path="/" element={ < Home/>} />
-          <Route path="/articles" element={ < ArticleList /> } />
-          <Route path="/articles/:id" element={ <ArticlePage /> } />
-          <Route path="/articles/new" element={ < ArticleCreate /> } />
-          <Route path="/articles/:id/edit" element={ < ArticleEdit /> } />
-          <Route path="/login" element={ < LoginForm/> } />
-          <Route path="/register" element={ < RegisterForm/> } />
-          <Route path="*" element={ < NotFound />} />
-        </Routes>
-        <Footer />
+          <Toaster position="bottom-right" aria-label={undefined} theme="dark"/>
+          <Header />
+          {/* <ToastContainer aria-label={undefined} /> */}
+          <Routes>
+            <Route path="/" element={ < Home/>} />
+            <Route path="/articles" element={ < ArticleList /> } />
+            <Route path="/articles/:id" element={ <ArticlePage /> } />
+            <Route path="/articles/new" element={ < ArticleCreate /> } />
+            <Route path="/articles/:id/edit" element={ < ArticleEdit /> } />
+            <Route path="/login" element={ < LoginForm/> } />
+            <Route path="/register" element={ < RegisterForm/> } />
+            <Route path="*" element={ < NotFound />} />
+          </Routes>
+          <Footer />
         </>
         )
 }

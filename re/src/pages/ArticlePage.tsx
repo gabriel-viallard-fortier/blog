@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
+import { Editor, EditorProvider } from 'react-simple-wysiwyg';
 import { toast } from 'sonner';
 
 export type ArticleType = {
@@ -71,7 +72,10 @@ function ArticlePage() {
                 <div className="w-50 m-auto rounded-4xl">
                     <img className="rounded-full aspect-square object-cover" src={article.image} alt={article.description} />
                 </div>
-                <p>{article.content}</p>
+                <EditorProvider>
+                    <Editor value={article.content}></Editor>
+                </EditorProvider>
+
                 <p>{article.description}</p>
             </div>
             <div className="text-center">

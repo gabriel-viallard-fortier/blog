@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
 import type { ArticleType } from '../pages/ArticlePage';
 import { toast } from 'sonner';
+import Editor from 'react-simple-wysiwyg';
 
 function ArticleEdit() {
     
@@ -52,9 +53,9 @@ function ArticleEdit() {
 
             })
             .catch((err) => setError(err.message))
-
-        }
+    }
   return (
+    <>
             <div className="w-full">
 
             {/* Formulaire d'édition de post */}
@@ -67,7 +68,7 @@ function ArticleEdit() {
                     <label
                         className="col-span-2"
                         htmlFor="postTitleInput"
-                    >
+                        >
                         Entrez un titre pour l'article
                     </label>
                     <input
@@ -95,28 +96,26 @@ function ArticleEdit() {
                         value={oldArticle.author}
                         className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setOldArticle({ ...oldArticle, author: e.target.value })}
-                    />
+                        />
 
                     {/* Contenu */}
                     <label
                         className="col-span-2"
-                        htmlFor="postContentInput">
+                        htmlFor="editor">
                         Saisissez le contenu de l'article
                     </label>
-                    <textarea
-                        className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
-                        id="postContentInput"
-                        name="postContentInput"
-                        value={oldArticle.content}
-                        onChange={(e) => setOldArticle({ ...oldArticle, content: e.target.value })}
-                    >
-                    </textarea>
+
+
+                    <div className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl">
+                        <Editor value={oldArticle.content} onChange={(e) => setOldArticle({ ...oldArticle, content: e.target.value })}/>
+                    </div>
+
 
                     {/* Catégorie */}
                     <label
                         className="col-span-2"
                         htmlFor="postCategoryInput"
-                    >
+                        >
                         Entrez la catégorie de l'article
                     </label>
                     <input
@@ -142,7 +141,7 @@ function ArticleEdit() {
                         value={oldArticle.description}
                         className="bg-sky-300/70 col-span-3 col-start-3 p-2 border rounded-xl"
                         onChange={(e) => setOldArticle({ ...oldArticle, description: e.target.value })}
-                    />
+                        />
 
                     {/* image */}
                     <label
@@ -165,6 +164,7 @@ function ArticleEdit() {
                 </fieldset>
             </form>
         </div>
+    </>
   )
 }
 
