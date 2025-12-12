@@ -1,14 +1,13 @@
-
 const mysql = require('mysql2');
 
-const connection = mysql.createConnection({
+const db = mysql.createConnection({
     host: process.env.DB_HOST,
     user: process.env.DB_USER,
     password: process.env.DB_PASSWORD,
     database: process.env.DB_NAME
 });
 
-connection.connect((error: any) => {
+db.connect((error: any) => {
     if (error) {
         console.error('❌ Erreur de connexion à MySQL:', error.message);
         return;
@@ -16,4 +15,4 @@ connection.connect((error: any) => {
     console.log('✅ Connecté à la base de données MySQL');
 });
 
-module.exports = connection;
+module.exports = db;

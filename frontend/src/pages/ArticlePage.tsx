@@ -2,35 +2,25 @@ import { useEffect, useState } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import { Editor, EditorProvider } from 'react-simple-wysiwyg';
 import { toast } from 'sonner';
-
-export type ArticleType = {
-    id?: string;
-    title: string;
-    author: string;
-    description: string;
-    image: string;
-    content: string;
-    categoryName: string;
-    likeCount: number;
-};
+import type { ArticleType } from '../assets/types/ArticleType';
 
 
 function ArticlePage() {
 
-    let navigate = useNavigate();
+    const navigate = useNavigate();
 
     const { id } = useParams<{ id: string }>();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
 
     function ArticleDelete() {
-        
+
         setIsLoading(true);
         setError(null);
-        
+
         fetch(`http://localhost:3000/articles/${id}`, {
             method: "DELETE",
-            })
+        })
             .then((response) => {
                 if (!response.ok) {
                     throw new Error("Impossible de supprimer l’article");
@@ -40,29 +30,28 @@ function ArticlePage() {
             })
             .catch((err) => {
                 console.error(err);
+                setError(err);
                 setError(err.message || "Une erreur est survenue lors de la suppression");
             })
             .finally(() => setIsLoading(false))
     }
-        
+
     const [article, setArticle] = useState<ArticleType | null>(null);
-    
+
     useEffect(() => {
         fetch(`http://localhost:3000/articles/${id}`)
-        .then((response) => response.json())
-        .then((data) => {
-            setArticle(data);
-            setIsLoading(false);
-        });
+            .then((response) => response.json())
+            .then((data) => {
+                setArticle(data);
+                setIsLoading(false);
+            });
     }, [id]);
 
-    if (isLoading) {
-        return <div>Loading...</div>;
-    }
-        
-    if (!article || !article.id) {
-        return <div>Article not found</div>;
-    }
+    if (error) return <div>Error: {error}</div>;
+
+    if (isLoading) return <div>Loading...</div>;
+
+    if (!article || !article.id) return <div>Article not found</div>;
 
     return (
         <div className="p-25 ">
